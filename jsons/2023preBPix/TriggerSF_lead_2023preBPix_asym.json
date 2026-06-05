@@ -1,0 +1,531 @@
+{
+  "schema_version": 2,
+  "description": "HLT photon trigger efficiencies for CMS 2023 data, preBpix era. Derived from Tag-and-Probe fits using bwDSCB signal model. Asymmetric uncertainties: up=total_unc_hi, down=total_unc_lo.",
+  "corrections": [
+    {
+      "name": "HLT_2023_preBpix_normal_seed",
+      "description": "HLT photon trigger efficiency for 2023 preBpix era, seed path, with track isolation. bwDSCB nominal fit; asymmetric uncertainty = stat + bkg systematic (CMS vs Exp bkg). Inputs: variation (nominal/up/down), eta_r9_bin (5 categories), pt [GeV].",
+      "version": 1,
+      "inputs": [
+        {
+          "name": "variation",
+          "type": "string",
+          "description": "nominal, up (+total_unc_hi), or down (-total_unc_lo)"
+        },
+        {
+          "name": "eta_r9_bin",
+          "type": "string",
+          "description": "eta and R9 category: EB_R9_0p50to0p55, EB_R9_0p55to0p85, EB_R9gt0p85, EE_R9_0p90to0p93, EE_R9gt0p93"
+        },
+        {
+          "name": "pt",
+          "type": "real",
+          "description": "Photon supercluster ET [GeV]"
+        }
+      ],
+      "output": {
+        "name": "efficiency",
+        "type": "real",
+        "description": "Trigger efficiency"
+      },
+      "data": {
+        "nodetype": "category",
+        "input": "variation",
+        "content": [
+          {
+            "key": "nominal",
+            "value": {
+              "nodetype": "category",
+              "input": "eta_r9_bin",
+              "content": [
+                {
+                  "key": "EB_R9_0p50to0p55",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8362,
+                      0.9045,
+                      0.9135,
+                      0.9265,
+                      0.9333,
+                      0.9338,
+                      0.9609,
+                      0.9537,
+                      0.9698
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EB_R9_0p55to0p85",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8769,
+                      0.9344,
+                      0.9442,
+                      0.952,
+                      0.9539,
+                      0.9513,
+                      0.9587,
+                      0.9671,
+                      0.9772
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EB_R9gt0p85",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8755,
+                      0.9164,
+                      0.9269,
+                      0.9387,
+                      0.9446,
+                      0.9488,
+                      0.954,
+                      0.9729,
+                      0.9805
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EE_R9_0p90to0p93",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.7975,
+                      0.9164,
+                      0.9256,
+                      0.9377,
+                      0.9491,
+                      0.9532,
+                      0.9633,
+                      0.9712,
+                      0.9763
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EE_R9gt0p93",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8524,
+                      0.9426,
+                      0.951,
+                      0.9598,
+                      0.9652,
+                      0.9675,
+                      0.9772,
+                      0.9795,
+                      0.989
+                    ],
+                    "flow": "clamp"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "key": "up",
+            "value": {
+              "nodetype": "category",
+              "input": "eta_r9_bin",
+              "content": [
+                {
+                  "key": "EB_R9_0p50to0p55",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.851276,
+                      0.908036,
+                      0.9147,
+                      0.9279999999999999,
+                      0.936598,
+                      0.940635,
+                      0.9821599999999999,
+                      0.968311,
+                      1.0
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EB_R9_0p55to0p85",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.888441,
+                      0.935913,
+                      0.9446,
+                      0.9521,
+                      0.9545319999999999,
+                      0.952862,
+                      0.963604,
+                      0.968812,
+                      0.9835069999999999
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EB_R9gt0p85",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8866449999999999,
+                      0.9165,
+                      0.9272159999999999,
+                      0.9389,
+                      0.9449,
+                      0.952601,
+                      0.957471,
+                      0.977382,
+                      0.981631
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EE_R9_0p90to0p93",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8191269999999999,
+                      0.923494,
+                      0.9273,
+                      0.939132,
+                      0.951964,
+                      0.9569660000000001,
+                      0.967932,
+                      0.979,
+                      0.9798129999999999
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EE_R9gt0p93",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8771370000000001,
+                      0.945724,
+                      0.951583,
+                      0.96044,
+                      0.96571,
+                      0.9692200000000001,
+                      0.9799019999999999,
+                      0.9840650000000001,
+                      0.9907
+                    ],
+                    "flow": "clamp"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "key": "down",
+            "value": {
+              "nodetype": "category",
+              "input": "eta_r9_bin",
+              "content": [
+                {
+                  "key": "EB_R9_0p50to0p55",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.8211240000000001,
+                      0.900964,
+                      0.9123,
+                      0.9248999999999999,
+                      0.930195,
+                      0.9280729999999999,
+                      0.932964,
+                      0.93889,
+                      0.916891
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EB_R9_0p55to0p85",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.865359,
+                      0.9336720000000001,
+                      0.9438000000000001,
+                      0.9519,
+                      0.953361,
+                      0.9497380000000001,
+                      0.953639,
+                      0.96499,
+                      0.971252
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EB_R9gt0p85",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.864355,
+                      0.9163,
+                      0.926584,
+                      0.9385,
+                      0.9443,
+                      0.9449989999999999,
+                      0.950252,
+                      0.968017,
+                      0.979437
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EE_R9_0p90to0p93",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.775539,
+                      0.909457,
+                      0.9238,
+                      0.936268,
+                      0.9468200000000001,
+                      0.94706,
+                      0.958376,
+                      0.9652,
+                      0.9718899999999999
+                    ],
+                    "flow": "clamp"
+                  }
+                },
+                {
+                  "key": "EE_R9gt0p93",
+                  "value": {
+                    "nodetype": "binning",
+                    "input": "pt",
+                    "edges": [
+                      0.0,
+                      35.0,
+                      37.0,
+                      40.0,
+                      45.0,
+                      50.0,
+                      60.0,
+                      70.0,
+                      90.0,
+                      999999.0
+                    ],
+                    "content": [
+                      0.827652,
+                      0.939476,
+                      0.950417,
+                      0.95916,
+                      0.9646899999999999,
+                      0.965935,
+                      0.97442,
+                      0.9742500000000001,
+                      0.9869
+                    ],
+                    "flow": "clamp"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
