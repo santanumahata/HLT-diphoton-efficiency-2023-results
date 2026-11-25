@@ -66,3 +66,18 @@ single-tower `probe_hoe < 0.08` (`hadTowOverEm()`) to cone-based `probe_hoe_bc <
 - **JSON R9 boundary fix:** Sublead (`unseed`) `TriggerSF` JSON `r9` edges are now corrected from
   `[0.0, 0.56, 0.85, 0.90, 999.0]` to `[0.0, 0.55, 0.85, 0.93, 999.0]` to match the fitter bins.
 - **Note:** `fullPath/` remains from the previous production and has not been re-run yet.
+
+## Update (2026-11-26): Full AN-24-116 preselection alignment (`opt2_20261125`)
+
+All 20 standard 2023 categories (`preBPix` & `postBPix` × `{seeded, unseeded}` × 5 η–R9 bins) were
+re-run natively in the latest `CMSSW_11_2_0` `egm_tnp_analysis` framework (`BW×DSCB + Minos`,
+**100% native convergence, 0 `CMSSW_10_6_8` fallbacks**) with the full preselection alignment:
+
+- Cone-based H/E (`probe_hoe_bc < 0.08`)
+- AN-24-116 inverted pixel veto on probes (`probe_hasPixelSeed == 1`, removing 10–14% low-pT
+  non-electron/FSR fakes and lifting 21–25 GeV unseeded EB efficiency by `+0.42` to `+0.89 pp`)
+- NanoAOD-exact quadratic charged isolation in the MiniAOD OR (`probe_pfRelIso03_chg_quad`,
+  CMSSW `RunIII_Winter22` formula, `0` `-99` entries)
+- EGamma S&S `Scale` re-evaluated using `probe_full5x5_r9`
+- Max plateau `|eff_CMS − eff_Exp|` drops to `1.40%` (`preBPix`) / `1.83%` (`postBPix`); all 4
+  `TriggerSF` JSONs validated with `correctionlib`.
